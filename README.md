@@ -28,4 +28,5 @@ No.
 
 ## References
 
+- [Creating a CA](https://www.phildev.net/ssl/creating_ca.html)
 - [OpenSSL Certificate Authority](https://jamielinux.com/docs/openssl-certificate-authority/index.html)
