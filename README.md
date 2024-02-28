@@ -10,6 +10,10 @@ No, the original applet viewer validated the public keys, so certificates signed
 
 Reference: [Deobfuscated applet viewer](https://github.com/Open592/jagexappletviewer/blob/master/src/main/java/com/open592/appletviewer/SignedFileValidator.java#L85-L115)
 
+### Could you ever run 592 era remote jars in the original unmodified applet viewer?
+
+No, the Jagex client was released after the 592 era (25th of May 2010) and is hard coded with a public key which differs from the one used to sign the 592 era jar files.
+
 ## What's the point?
 
 To better understand how Jagex distributed their game.
