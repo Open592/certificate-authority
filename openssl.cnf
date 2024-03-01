@@ -1,0 +1,126 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+# Allow for customizing the root directory.
+#
+# If OPEN592_CA_ROOT_DIR is not in the environment we will fallback to this
+# value.
+dir                 = ${ENV::OPEN592_CA_ROOT_DIR}
+certs               = $dir/certs
+crl_dir             = $dir/crl
+new_certs_dir       = $dir/newcerts
+database            = $dir/index.txt
+RANDFILE            = $dir/private/.rand
+
+# The root key and root certificates
+private_key         = $dir/private/ca.key.pem
+certificate         = $dir/certs/ca.cert.pem
+
+# For certificate revocation lists.
+crlnumber           = $dir/crlnumber
+crl                 = $dir/crl/ca.crl.pem
+crl_extensions      = crl_ext
+default_crl_days    = 30
+
+# SHA-1 is deprecated, so use SHA-2 instead.
+default_md          = sha256
+
+name_opt            = ca_default
+cert_opt            = ca_default
+default_days        = 375
+preserve            = no
+policy              = policy_strict
+
+# Policy strict will be applied for all root CA signatures, which will
+# only be applied to create intermediate CA signatures.
+[ policy_strict ]
+# The root CA should only sign intermediate certificates that match.
+# See the POLICY FORMAT section of `man ca`
+countryName             = match
+stateOrProvinceName     = match
+organizationName        = match
+organizationUnitName    = optional
+commonName              = supplied
+emailAddress            = optional
+
+# Policy loose will be applied for all intermediate CA signatures.
+[ policy_loose ]
+# Allow the intermediate CA to sign a more diverse range of certificates.
+# See the POLICY FORMAT section of the `ca` man page.
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+organizationName        = optional
+organizationUnitName    = optional
+commonName              = supplied
+emailAddress            = optional
+
+# Options from `req` are applied when creating certificates or CSRs
+[ req ]
+# Options for the `req` rool (`man req`)
+default_bits            = 2048
+distinguished_name      = req_distinguished_name
+string_mask             = utf8only
+
+# SHA-1 is deprecated
+default_md              = sha256
+
+# Extensions to add when the -x509 option is used.
+x509_extensions         = v3_ca
+
+[ req_distinguished_name ]
+# See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
+commonName              = Common Name (CN)
+0.organizationName      = Organization Name (O)
+organizationalUnitName  = Organization Unit Name (OU)
+localityName            = Locality Name (L)
+stateOrProvinceName     = State or Province Name (ST)
+countryName             = Country Name (C) - (2 letter code)
+emailAddress            = Email Address (EMAILADDRESS)
+
+[ v3_ca ]
+# Extensions for a typical CA (`man x509v3_config`).
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid:always,issuer
+basicConstraints        = critical, CA:true
+keyUsage                = critical, digitalSignature, cRLSign, keyCertSign
+
+[ v3_intermediate_ca ]
+# Extensions for typical intermediate CA (`man x509v3_config`).
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid:always,issuer
+basicConstraints        = critical, CA:true, pathlen:0
+keyUsage                = critical, digitalSignature, cRLSign, keyCertSign
+
+[ usr_cert ]
+# Extensions for client certificates (`man x509v3_config`).
+basicConstraints        = CA:FALSE
+nsCertType              = client, email
+nsComment               = "OpenSSL Generated Client Certificate"
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer
+keyUsage                = critical, nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage        = clientAuth, emailProtection
+
+[ server_cert ]
+# Extensions for server certificates (`man x509v3_config`).
+basicConstraints        = CA:FALSE
+nsCertType              = server
+nsComment               = "OpenSSL Generated Server Certificate"
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+keyUsage                = critical, digitalSignature, keyEncipherment
+extendedKeyUsage        = serverAuth
+
+[ crl_ext ]
+# Extension for CRLs (`man x509v3_config`)
+authorityKeyIdentifier  = keyid:always
+
+[ ocsp ]
+# Extension for OCSP signing certificates (`man oscp`).
+basicConstraints        = CA:FALSE
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer
+keyUsage                = critical, digitalSignature
+extendedKeyUsage        = critical, OCSPSigning

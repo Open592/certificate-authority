@@ -1,0 +1,5 @@
+ca/certs/*
+!ca/certs/.gitkeep
+
+ca/private/*
+!ca/private/.gitkeep
