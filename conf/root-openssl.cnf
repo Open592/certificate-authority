@@ -2,15 +2,12 @@
 default_ca = CA_default
 
 [ CA_default ]
-# Allow for customizing the root directory.
-#
-# If OPEN592_CA_ROOT_DIR is not in the environment we will fallback to this
-# value.
 dir                 = ${ENV::OPEN592_CA_ROOT_DIR}
 certs               = $dir/certs
 crl_dir             = $dir/crl
 new_certs_dir       = $dir/newcerts
 database            = $dir/index.txt
+serial              = $dir/serial
 RANDFILE            = $dir/private/.rand
 
 # The root key and root certificates
@@ -38,9 +35,9 @@ policy              = policy_strict
 # The root CA should only sign intermediate certificates that match.
 # See the POLICY FORMAT section of `man ca`
 countryName             = match
-stateOrProvinceName     = match
-organizationName        = match
-organizationUnitName    = optional
+stateOrProvinceName     = optional
+organizationName        = supplied
+organizationalUnitName  = optional
 commonName              = supplied
 emailAddress            = optional
 
@@ -52,7 +49,7 @@ countryName             = optional
 stateOrProvinceName     = optional
 localityName            = optional
 organizationName        = optional
-organizationUnitName    = optional
+organizationalUnitName  = optional
 commonName              = supplied
 emailAddress            = optional
 

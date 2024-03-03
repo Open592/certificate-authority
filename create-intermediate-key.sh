@@ -16,11 +16,11 @@ if ! [ -x "$(command -v openssl)" ]; then
 fi
 
 # Directory where we will output the resulting key.
-readonly DIR="./ca/private"
+readonly DIR="./ca/intermediate/private"
 # Filename of the resulting key.
-readonly OUTPUT_FILE="$DIR/ca.key.pem"
+readonly OUTPUT_FILE="$DIR/intermediate.key.pem"
 
-# We output the root key to "./ca/private" and expect this directory
+# We output the root key to $DIR and expect this directory
 # to be present.
 if ! [ -d $DIR ]; then
     fatal "This script requires a $DIR directory to be present!"

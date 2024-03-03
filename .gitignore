@@ -1,5 +1,23 @@
 ca/certs/*
 !ca/certs/.gitkeep
 
+ca/intermediate/certs/*
+!ca/intermediate/certs/.gitkeep
+
+ca/intermediate/csr/*
+!ca/intermediate/csr/.gitkeep
+
+ca/intermediate/private/*
+!ca/intermediate/private/.gitkeep
+
+ca/newcerts/*
+!ca/newcerts/.gitkeep
+
 ca/private/*
 !ca/private/.gitkeep
+
+ca/index.*
+
+# The provided serial file results in the created intermediate
+# certificate having the same serial number
+ca/serial.*

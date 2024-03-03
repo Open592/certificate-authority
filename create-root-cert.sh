@@ -15,8 +15,11 @@ if ! [ -x "$(command -v openssl)" ]; then
     fatal "This script requires openssl to be installed!"
 fi
 
-if ! [ -d "./ca/certs/" ]; then
-    fatal "This script requires a ./ca/certs directory to be present!"
+# Directory where we will output the resulting certificate.
+readonly DIR="./ca/certs"
+
+if ! [ -d $DIR ]; then
+    fatal "This script requires a $DIR directory to be present!"
 fi
 
 # We assume we are executing at the root of the directory structure
@@ -30,14 +33,14 @@ fi
 export OPEN592_CA_ROOT_DIR="$(pwd)/ca"
 
 openssl req \
-  -config openssl.cnf \
+  -config conf/root-openssl.cnf \
   -key ca/private/ca.key.pem \
   -new -x509 \
   -days 7300 \
   -sha256 \
   -extensions v3_ca \
-  -out ca/certs/ca.cert.pem
+  -out $DIR/ca.cert.pem
 
-chmod 444 ca/certs/ca.cert.pem
+chmod 444 "$DIR/ca.cert.pem"
 
-openssl x509 -noout -text -in ca/certs/ca.cert.pem
+openssl x509 -noout -text -in "$DIR/ca.cert.pem"
