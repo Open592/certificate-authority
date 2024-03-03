@@ -3,23 +3,23 @@
 set -euo pipefail
 
 log() {
-    echo "[${0##*/}]: $1" >&2;
+  echo "[${0##*/}]: $1" >&2;
 }
 
 fatal() {
-    log "<FATAL> $1";
-    exit 1;
+  log "<FATAL> $1";
+  exit 1;
 }
 
 if ! [ -x "$(command -v openssl)" ]; then
-    fatal "This script requires openssl to be installed!"
+  fatal "This script requires openssl to be installed!"
 fi
 
 # Directory where we will output the resulting certificate.
 readonly DIR="./ca/certs"
 
 if ! [ -d $DIR ]; then
-    fatal "This script requires a $DIR directory to be present!"
+  fatal "This script requires a $DIR directory to be present!"
 fi
 
 # We assume we are executing at the root of the directory structure
