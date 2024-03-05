@@ -1,5 +1,5 @@
 [ ca ]
-default_ca = CA_default
+default_ca  = CA_default
 
 [ CA_default ]
 dir                 = ${ENV::OPEN592_CA_ROOT_DIR}
@@ -45,17 +45,18 @@ emailAddress            = optional
 [ policy_loose ]
 # Allow the intermediate CA to sign a more diverse range of certificates.
 # See the POLICY FORMAT section of the `ca` man page.
-countryName             = optional
-stateOrProvinceName     = optional
-localityName            = optional
-organizationName        = optional
-organizationalUnitName  = optional
+countryName             = supplied
+stateOrProvinceName     = supplied
+localityName            = supplied
+organizationName        = supplied
+organizationalUnitName  = supplied
 commonName              = supplied
 emailAddress            = optional
 
 # Options from `req` are applied when creating certificates or CSRs
 [ req ]
 # Options for the `req` rool (`man req`)
+prompt                  = no
 default_bits            = 2048
 distinguished_name      = req_distinguished_name
 string_mask             = utf8only
@@ -68,13 +69,16 @@ x509_extensions         = v3_ca
 
 [ req_distinguished_name ]
 # See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
-commonName              = Common Name (CN)
-0.organizationName      = Organization Name (O)
-organizationalUnitName  = Organization Unit Name (OU)
-localityName            = Locality Name (L)
-stateOrProvinceName     = State or Province Name (ST)
-countryName             = Country Name (C) - (2 letter code)
-emailAddress            = Email Address (EMAILADDRESS)
+#
+# As present in the original Thawte certificate, which was used to sign
+# Jagex's jars.
+commonName              = Thawte Premium Server CA
+0.organizationName      = Thawte Consulting cc
+organizationalUnitName  = Certification Services Division
+localityName            = Cape Town
+stateOrProvinceName     = Western Cape
+countryName             = ZA
+emailAddress            = premium-server@thawte.com
 
 [ v3_ca ]
 # Extensions for a typical CA (`man x509v3_config`).

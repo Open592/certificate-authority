@@ -57,6 +57,7 @@ emailAddress            = optional
 # Options from `req` are applied when creating certificates or CSRs
 [ req ]
 # Options for the `req` rool (`man req`)
+prompt                  = no
 default_bits            = 2048
 distinguished_name      = req_distinguished_name
 string_mask             = utf8only
@@ -69,13 +70,12 @@ x509_extensions         = v3_ca
 
 [ req_distinguished_name ]
 # See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
-commonName              = Common Name (CN)
-0.organizationName      = Organization Name (O)
-organizationalUnitName  = Organization Unit Name (OU)
-localityName            = Locality Name (L)
-stateOrProvinceName     = State or Province Name (ST)
-countryName             = Country Name (C) - (2 letter code)
-emailAddress            = Email Address (EMAILADDRESS)
+#
+# As present in the original Thawte certificate, which was used to sign
+# Jagex's jars.
+commonName              = Thawte Code Signing CA
+0.organizationName      = Thawte Consulting (Pty) Ltd.
+countryName             = ZA
 
 [ v3_ca ]
 # Extensions for a typical CA (`man x509v3_config`).

@@ -41,7 +41,8 @@ export OPEN592_CA_ROOT_DIR="$(pwd)/ca"
 # Create the CSR
 openssl req \
   -config conf/intermediate-openssl.cnf \
-  -new -sha256 \
+  -new \
+  -sha256 \
   -key "$ROOT_DIR/private/intermediate.key.pem" \
   -out "$ROOT_DIR/csr/intermediate.csr.pem"
 
