@@ -42,7 +42,6 @@ export OPEN592_CA_ROOT_DIR="$(pwd)/ca"
 openssl req \
   -config conf/intermediate-openssl.cnf \
   -new \
-  -sha256 \
   -key "$ROOT_DIR/private/intermediate.key.pem" \
   -out "$ROOT_DIR/csr/intermediate.csr.pem"
 
@@ -51,7 +50,6 @@ openssl ca \
   -config conf/root-openssl.cnf \
   -extensions v3_intermediate_ca \
   -notext \
-  -md sha256 \
   -in "$ROOT_DIR/csr/intermediate.csr.pem" \
   -out "$ROOT_DIR/certs/intermediate.cert.pem"
 
