@@ -50,7 +50,6 @@ openssl req \
 openssl ca \
   -config conf/root-openssl.cnf \
   -extensions v3_intermediate_ca \
-  -days 3650 \
   -notext \
   -md sha256 \
   -in "$ROOT_DIR/csr/intermediate.csr.pem" \
@@ -62,6 +61,7 @@ openssl x509 \
   -in "$ROOT_DIR/certs/intermediate.cert.pem"
 
 openssl verify \
+  -no_check_time \
   -CAfile "./ca/certs/ca.cert.pem" \
   "$ROOT_DIR/certs/intermediate.cert.pem"
 

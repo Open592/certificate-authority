@@ -10,6 +10,10 @@ database            = $dir/index.txt
 serial              = $dir/serial
 RANDFILE            = $dir/private/.rand
 
+# Corresponds to the defaults in the original certificate
+default_startdate   = 20030806000000Z
+default_enddate     = 20130805235959Z
+
 # The root key and root certificates
 private_key         = $dir/private/ca.key.pem
 certificate         = $dir/certs/ca.cert.pem

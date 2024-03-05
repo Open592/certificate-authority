@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Delete the following files which are created during certificate creation.
 readonly FILES_GLOBS=(
-  "./ca/index.txt"
+  "./ca/index.txt*" # Cover "index.txt", "index.txt.attr", "index.txt.old"
   "./ca/serial*" # Cover "serial", "serial.old", etc
   "./ca/certs/ca.cert.pem"
   "./ca/intermediate/certs/*.pem"
