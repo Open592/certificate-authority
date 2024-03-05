@@ -27,8 +27,8 @@ if ! [ -d $DIR ]; then
 fi
 
 openssl genrsa \
-    -aes256 \
-    -out $OUTPUT_FILE \
-    4096
+  -aes256 \
+  -out $OUTPUT_FILE \
+  1024
 
 chmod 400 $OUTPUT_FILE

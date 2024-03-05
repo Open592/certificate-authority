@@ -29,6 +29,6 @@ fi
 openssl genrsa \
   -aes256 \
   -out $OUTPUT_FILE \
-  4096
+  1024
 
 chmod 400 $OUTPUT_FILE
