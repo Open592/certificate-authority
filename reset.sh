@@ -3,7 +3,7 @@
 source shared.sh
 
 # Delete the following files which are created during certificate creation.
-readonly FILES_GLOBS=(
+readonly FILE_GLOBS=(
   "./ca/index.txt*" # Cover "index.txt", "index.txt.attr", "index.txt.old"
   "./ca/serial*" # Cover "serial", "serial.old", etc
   "./ca/certs/ca.cert.pem"
@@ -15,8 +15,8 @@ readonly FILES_GLOBS=(
   "./ca/private/ca.key.pem"
 )
 
-for file in ${FILES_GLOBS[@]}; do
-  rm -f -v $file
+for glob in ${FILE_GLOBS[@]}; do
+  rm -f -v $glob
 done
 
 # Create the required files
