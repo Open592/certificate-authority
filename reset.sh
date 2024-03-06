@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+source shared.sh
 
 # Delete the following files which are created during certificate creation.
 readonly FILES_GLOBS=(

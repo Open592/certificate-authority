@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
-log() {
-  echo "[${0##*/}]: $1" >&2;
-}
-
-fatal() {
-  log "<FATAL> $1";
-  exit 1;
-}
-
-if ! [ -x "$(command -v openssl)" ]; then
-  fatal "This script requires openssl to be installed!"
-fi
+source shared.sh
 
 # Directory where we will output the resulting certificate.
 readonly DIR="./ca/certs"
@@ -35,10 +22,9 @@ export OPEN592_CA_ROOT_DIR="$(pwd)/ca"
 openssl req \
   -config conf/root-openssl.cnf \
   -key ca/private/ca.key.pem \
-  -new -x509 \
+  -new \
+  -x509 \
   -days 7300 \
-  -sha256 \
-  -extensions v3_ca \
   -out $DIR/ca.cert.pem
 
 chmod 444 "$DIR/ca.cert.pem"

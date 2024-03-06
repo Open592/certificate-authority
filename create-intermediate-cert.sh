@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
-log() {
-  echo "[${0##*/}]: $1" >&2;
-}
-
-fatal() {
-  log "<FATAL> $1";
-  exit 1;
-}
-
-if ! [ -x "$(command -v openssl)" ]; then
-  fatal "This script requires openssl to be installed!"
-fi
+source shared.sh
 
 readonly ROOT_DIR="./ca/intermediate"
 
