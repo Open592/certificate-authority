@@ -3,19 +3,14 @@
 source shared.sh
 
 # Directory where we will output the resulting key.
-readonly DIR="./ca/private"
-# Filename of the resulting key.
-readonly OUTPUT_FILE="$DIR/ca.key.pem"
+assert_directory_exists $CA_ROOT_PRIVATE_DIR
 
-# We output the root key to "./ca/private" and expect this directory
-# to be present.
-if ! [ -d $DIR ]; then
-  fatal "This script requires a $DIR directory to be present!"
-fi
+# Filename of the resulting key.
+readonly ROOT_KEY_FILE="$CA_ROOT_PRIVATE_DIR/ca.key.pem"
 
 openssl genrsa \
   -aes256 \
-  -out $OUTPUT_FILE \
+  -out $ROOT_KEY_FILE \
   1024
 
-chmod 400 $OUTPUT_FILE
+chmod 400 $ROOT_KEY_FILE

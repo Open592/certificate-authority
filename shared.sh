@@ -19,3 +19,32 @@ fatal() {
 if ! [ -x "$(command -v openssl)" ]; then
   fatal "This script requires openssl to be installed!"
 fi
+
+readonly CA_ROOT_DIR="./ca"
+readonly CA_INTERMEDIATE_DIR="$CA_ROOT_DIR/intermediate"
+
+readonly CA_ROOT_CERTS_DIR="$CA_ROOT_DIR/certs"
+readonly CA_ROOT_NEWCERTS_DIR="$CA_ROOT_DIR/newcerts"
+readonly CA_ROOT_PRIVATE_DIR="$CA_ROOT_DIR/private"
+
+readonly CA_INTERMEDIATE_CERTS_DIR="$CA_INTERMEDIATE_DIR/certs"
+readonly CA_INTERMEDIATE_CSR_DIR="$CA_INTERMEDIATE_DIR/csr"
+readonly CA_INTERMEDIATE_PRIVATE_DIR="$CA_INTERMEDIATE_DIR/private"
+
+readonly ROOT_CONFIGURATION_FILE="./conf/root-openssl.cnf"
+readonly INTERMEDIATE_CONFIGURATION_FILE="./conf/intermediate-openssl.cnf"
+
+assert_directory_exists() {
+  if ! [ -d $1 ]; then
+    fatal "This script requires a $1 directory to be present!"
+  fi
+}
+
+# We assume we are executing at the root of the directory structure
+# and that we have a `ca/` directory at the same level.
+#
+# We set the following environment variable which specifies where
+# openssl should be storing / finding it's required files.
+#
+# This environment variable is referenced within the configuration file.
+export OPEN592_CA_ROOT_DIR="$(pwd)/ca"

@@ -2,56 +2,39 @@
 
 source shared.sh
 
-readonly ROOT_DIR="./ca/intermediate"
+assert_directory_exists $CA_ROOT_NEWCERTS_DIR
+assert_directory_exists $CA_ROOT_CERTS_DIR
 
-if ! [ -d "$ROOT_DIR/csr" ]; then
-  fatal "This script requires a $ROOT_DIR/csr directory to be present!"
-fi
-
-if ! [ -d "./ca/newcerts" ]; then
-  fatal "This script requires a ./ca/newcerts directory to be present!"
-fi
-
-if ! [ -d "$ROOT_DIR/certs" ]; then
-  fatal "This script requires a $ROOT_DIR/certs directory to be present!"
-fi
-
-# We assume we are executing at the root of the directory structure
-# and that we have a `ca/` directory at the same level.
-#
-# We set the following environment variable which specifies where
-# openssl should be storing / finding it's required files.
-#
-# This environment variable is referenced within the configuration file.
-export OPEN592_CA_ROOT_DIR="$(pwd)/ca"
+assert_directory_exists $CA_INTERMEDIATE_CSR_DIR
+assert_directory_exists $CA_INTERMEDIATE_CERTS_DIR
 
 # Create the CSR
 openssl req \
-  -config conf/intermediate-openssl.cnf \
+  -config $INTERMEDIATE_CONFIGURATION_FILE \
   -new \
-  -key "$ROOT_DIR/private/intermediate.key.pem" \
-  -out "$ROOT_DIR/csr/intermediate.csr.pem"
+  -key "$CA_INTERMEDIATE_PRIVATE_DIR/intermediate.key.pem" \
+  -out "$CA_INTERMEDIATE_CSR_DIR/intermediate.csr.pem"
 
 # Create the certificate
 openssl ca \
-  -config conf/root-openssl.cnf \
+  -config $ROOT_CONFIGURATION_FILE \
   -extensions v3_intermediate_ca \
   -notext \
-  -in "$ROOT_DIR/csr/intermediate.csr.pem" \
-  -out "$ROOT_DIR/certs/intermediate.cert.pem"
+  -in "$CA_INTERMEDIATE_CSR_DIR/intermediate.csr.pem" \
+  -out "$CA_INTERMEDIATE_CERTS_DIR/intermediate.cert.pem"
 
 openssl x509 \
   -noout \
   -text \
-  -in "$ROOT_DIR/certs/intermediate.cert.pem"
+  -in "$CA_INTERMEDIATE_CERTS_DIR/intermediate.cert.pem"
 
 openssl verify \
   -no_check_time \
-  -CAfile "./ca/certs/ca.cert.pem" \
-  "$ROOT_DIR/certs/intermediate.cert.pem"
+  -CAfile "$CA_ROOT_CERTS_DIR/ca.cert.pem" \
+  "$CA_INTERMEDIATE_CERTS_DIR/intermediate.cert.pem"
 
 # Create certificate chain
-cat "$ROOT_DIR/certs/intermediate.cert.pem" "./ca/certs/ca.cert.pem" \
-  > "$ROOT_DIR/certs/ca-chain.cert.pem"
+cat "$CA_INTERMEDIATE_CERTS_DIR/intermediate.cert.pem" "$CA_ROOT_CERTS_DIR/ca.cert.pem" \
+  > "$CA_INTERMEDIATE_CERTS_DIR/ca-chain.cert.pem"
 
-chmod 444 "$ROOT_DIR/certs/ca-chain.cert.pem"
+chmod 444 "$CA_INTERMEDIATE_CERTS_DIR/ca-chain.cert.pem"

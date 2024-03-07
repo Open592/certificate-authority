@@ -4,15 +4,14 @@ source shared.sh
 
 # Delete the following files which are created during certificate creation.
 readonly FILE_GLOBS=(
-  "./ca/index.txt*" # Cover "index.txt", "index.txt.attr", "index.txt.old"
-  "./ca/serial*" # Cover "serial", "serial.old", etc
-  "./ca/certs/ca.cert.pem"
-  "./ca/intermediate/certs/*.pem"
-  "./ca/intermediate/certs/*.pem"
-  "./ca/intermediate/csr/intermediate.csr.pem"
-  "./ca/intermediate/private/intermediate.key.pem"
-  "./ca/newcerts/*.pem"
-  "./ca/private/ca.key.pem"
+  "$CA_ROOT_DIR/index.txt*" # Cover "index.txt", "index.txt.attr", "index.txt.old"
+  "$CA_ROOT_DIR/serial*" # Cover "serial", "serial.old", etc
+  "$CA_ROOT_CERTS_DIR/ca.cert.pem"
+  "$CA_INTERMEDIATE_CERTS_DIR/*.pem"
+  "$CA_INTERMEDIATE_CSR_DIR/intermediate.csr.pem"
+  "$CA_INTERMEDIATE_PRIVATE_DIR/intermediate.key.pem"
+  "$CA_ROOT_NEWCERTS_DIR/*.pem"
+  "$CA_ROOT_PRIVATE_DIR/ca.key.pem"
 )
 
 for glob in ${FILE_GLOBS[@]}; do
@@ -21,8 +20,8 @@ done
 
 # Create the required files
 
-touch "./ca/index.txt"
+touch "$CA_ROOT_DIR/index.txt"
 
 # For the next run we want the intermediate certificate to use the serial
 # present within the original Thawte certificate
-echo "0a" > "./ca/serial"
+echo "0a" > "$CA_ROOT_DIR/serial"
