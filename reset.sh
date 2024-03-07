@@ -19,7 +19,6 @@ for glob in ${FILE_GLOBS[@]}; do
 done
 
 # Create the required files
-
 touch "$CA_ROOT_DIR/index.txt"
 
 # For the next run we want the intermediate certificate to use the serial

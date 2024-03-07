@@ -5,12 +5,12 @@ set -euo pipefail
 # Log a message to stderr which includes the script's filename
 #
 # Example :: "./script-name.sh <MESSAGE>"
-log() {
+function log {
   echo "[${0##*/}]: $1" >&2;
 }
 
 # Log a fatal message before exiting
-fatal() {
+function fatal {
   log "<FATAL> $1";
 
   exit 1;
@@ -34,7 +34,7 @@ readonly CA_INTERMEDIATE_PRIVATE_DIR="$CA_INTERMEDIATE_DIR/private"
 readonly ROOT_CONFIGURATION_FILE="./conf/root-openssl.cnf"
 readonly INTERMEDIATE_CONFIGURATION_FILE="./conf/intermediate-openssl.cnf"
 
-assert_directory_exists() {
+function assert_directory_exists {
   if ! [ -d $1 ]; then
     fatal "This script requires a $1 directory to be present!"
   fi
