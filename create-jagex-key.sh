@@ -6,7 +6,7 @@ source shared.sh
 assert_directory_exists $CA_INTERMEDIATE_PRIVATE_DIR
 
 # Filename of the resulting key.
-readonly INTERMEDIATE_KEY_FILE="$CA_INTERMEDIATE_PRIVATE_DIR/intermediate.key.pem"
+readonly INTERMEDIATE_KEY_FILE="$CA_INTERMEDIATE_PRIVATE_DIR/jagex-ltd.key.pem"
 
 openssl genrsa \
   -aes256 \

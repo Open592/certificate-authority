@@ -12,6 +12,7 @@ assert_directory_exists $CA_INTERMEDIATE_CERTS_DIR
 openssl req \
   -config $INTERMEDIATE_CONFIGURATION_FILE \
   -new \
+  -subj "/CN=Thawte Code Signing CA/O=Thawte Consulting (Pty) Ltd./C=ZA"\
   -key "$CA_INTERMEDIATE_PRIVATE_DIR/intermediate.key.pem" \
   -out "$CA_INTERMEDIATE_CSR_DIR/intermediate.csr.pem"
 
@@ -20,6 +21,9 @@ openssl ca \
   -config $ROOT_CONFIGURATION_FILE \
   -extensions v3_intermediate_ca \
   -notext \
+  -startdate "20030806000000Z" \
+  -enddate "20130805235959Z" \
+  -md "sha1" \
   -in "$CA_INTERMEDIATE_CSR_DIR/intermediate.csr.pem" \
   -out "$CA_INTERMEDIATE_CERTS_DIR/intermediate.cert.pem"
 

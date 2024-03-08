@@ -10,10 +10,6 @@ database            = $dir/index.txt
 serial              = $dir/serial
 RANDFILE            = $dir/private/.rand
 
-# Corresponds to the defaults in the original certificate
-default_startdate   = 20030806000000Z
-default_enddate     = 20130805235959Z
-
 # The root key and root certificates
 private_key         = $dir/private/ca.key.pem
 certificate         = $dir/certs/ca.cert.pem
@@ -23,9 +19,6 @@ crlnumber           = $dir/crlnumber
 crl                 = $dir/crl/ca.crl.pem
 crl_extensions      = crl_ext
 default_crl_days    = 30
-
-# Original certificate used sha1
-default_md          = sha1
 
 name_opt            = ca_default
 cert_opt            = ca_default
@@ -62,36 +55,19 @@ emailAddress            = optional
 # Options for the `req` rool (`man req`)
 prompt                  = no
 default_bits            = 1024
-distinguished_name      = req_distinguished_name
 string_mask             = utf8only
-
-# SHA-1 is deprecated
-default_md              = sha256
 
 # Extensions to add when the -x509 option is used.
 x509_extensions         = v3_ca
 
-[ req_distinguished_name ]
-# See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
-#
-# As present in the original Thawte certificate, which was used to sign
-# Jagex's jars.
-commonName              = Thawte Premium Server CA
-0.organizationName      = Thawte Consulting cc
-organizationalUnitName  = Certification Services Division
-localityName            = Cape Town
-stateOrProvinceName     = Western Cape
-countryName             = ZA
-emailAddress            = premium-server@thawte.com
-
 [ v3_ca ]
 # Extensions for a typical CA (`man x509v3_config`).
-basicConstraints        = critical, CA:true
+basicConstraints        = critical, CA:TRUE
 keyUsage                = critical, cRLSign, keyCertSign
 
 [ v3_intermediate_ca ]
 # Extensions for typical intermediate CA (`man x509v3_config`).
-basicConstraints        = critical, CA:true, pathlen:0
+basicConstraints        = critical, CA:TRUE, pathlen:0
 keyUsage                = critical, cRLSign, keyCertSign
 crlDistributionPoints   = URI:http://crl.thawte.com/ThawtePremiumServerCA.crl
 subjectAltName          = dirName:directory_section
@@ -101,7 +77,3 @@ extendedKeyUsage        = clientAuth, codeSigning
 
 [ directory_section ]
 CN = PrivateLabel2-144
-
-[ crl_ext ]
-# Extension for CRLs (`man x509v3_config`)
-authorityKeyIdentifier  = keyid:always

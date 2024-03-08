@@ -7,6 +7,9 @@ ca/intermediate/certs/*
 ca/intermediate/csr/*
 !ca/intermediate/csr/.gitkeep
 
+ca/intermediate/newcerts/*
+!ca/intermediate/newcerts/.gitkeep
+
 ca/intermediate/private/*
 !ca/intermediate/private/.gitkeep
 
