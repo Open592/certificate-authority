@@ -81,15 +81,17 @@ crlDistributionPoints   = URI:http://crl.thawte.com/ThawteCodeSigningCA.crl
 authorityInfoAccess     = OCSP;URI:http://ocsp.thawte.com
 subjectKeyIdentifier    = none
 authorityKeyIdentifier  = none
-extendedKeyUsage        = codeSigning
-1.3.6.1.4.1.311.2.1.22  = ASN1:SEQUENCE:ccs_ext
+extendedKeyUsage        = codeSigning, 1.3.6.1.4.1.311.2.1.22
+2.5.29.4                = ASN1:SEQUENCE:key_usage_restriction
+2.16.840.1.113730.1.1   = ASN1:FORMAT:HEX,BITSTRING:01
 
-[ ccs_ext ]
-wrappingSeq = SEQUENCE:ccs_oid_seq
-key         = OCTETSTRING:1
+[ key_usage_restriction ]
+wrappingSeq = SEQUENCE:wrapped_ext_oid
+key         = FORMAT:HEX,BITSTRING:01
 
-[ ccs_oid_seq ]
-wrappingSeq = SEQUENCE:ccs_oid
+[ wrapped_ext_oid ]
+wrappingSeq = SEQUENCE:ext_oid
 
-[ ccs_oid ]
-oid = OID:1.3.6.1.4.1.311.2.1.22
+[ ext_oid ]
+key = OID:1.3.6.1.4.1.311.2.1.22
+
