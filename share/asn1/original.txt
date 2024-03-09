@@ -1,0 +1,118 @@
+    0:d=0  hl=4 l= 963 cons: SEQUENCE          
+    4:d=1  hl=4 l= 812 cons:  SEQUENCE          
+    8:d=2  hl=2 l=   3 cons:   cont [ 0 ]        
+   10:d=3  hl=2 l=   1 prim:    INTEGER           :02
+   13:d=2  hl=2 l=  16 prim:   INTEGER           :4F00F6A4A7353212DBE4F2B78B897B38
+   31:d=2  hl=2 l=  13 cons:   SEQUENCE          
+   33:d=3  hl=2 l=   9 prim:    OBJECT            :sha1WithRSAEncryption
+   44:d=3  hl=2 l=   0 prim:    NULL              
+   46:d=2  hl=2 l=  85 cons:   SEQUENCE          
+   48:d=3  hl=2 l=  11 cons:    SET               
+   50:d=4  hl=2 l=   9 cons:     SEQUENCE          
+   52:d=5  hl=2 l=   3 prim:      OBJECT            :countryName
+   57:d=5  hl=2 l=   2 prim:      PRINTABLESTRING   :ZA
+   61:d=3  hl=2 l=  37 cons:    SET               
+   63:d=4  hl=2 l=  35 cons:     SEQUENCE          
+   65:d=5  hl=2 l=   3 prim:      OBJECT            :organizationName
+   70:d=5  hl=2 l=  28 prim:      PRINTABLESTRING   :Thawte Consulting (Pty) Ltd.
+  100:d=3  hl=2 l=  31 cons:    SET               
+  102:d=4  hl=2 l=  29 cons:     SEQUENCE          
+  104:d=5  hl=2 l=   3 prim:      OBJECT            :commonName
+  109:d=5  hl=2 l=  22 prim:      PRINTABLESTRING   :Thawte Code Signing CA
+  133:d=2  hl=2 l=  30 cons:   SEQUENCE          
+  135:d=3  hl=2 l=  13 prim:    UTCTIME           :080829000000Z
+  150:d=3  hl=2 l=  13 prim:    UTCTIME           :100912235959Z
+  165:d=2  hl=3 l= 139 cons:   SEQUENCE          
+  168:d=3  hl=2 l=  11 cons:    SET               
+  170:d=4  hl=2 l=   9 cons:     SEQUENCE          
+  172:d=5  hl=2 l=   3 prim:      OBJECT            :countryName
+  177:d=5  hl=2 l=   2 prim:      PRINTABLESTRING   :GB
+  181:d=3  hl=2 l=  23 cons:    SET               
+  183:d=4  hl=2 l=  21 cons:     SEQUENCE          
+  185:d=5  hl=2 l=   3 prim:      OBJECT            :stateOrProvinceName
+  190:d=5  hl=2 l=  14 prim:      PRINTABLESTRING   :Cambridgeshire
+  206:d=3  hl=2 l=  18 cons:    SET               
+  208:d=4  hl=2 l=  16 cons:     SEQUENCE          
+  210:d=5  hl=2 l=   3 prim:      OBJECT            :localityName
+  215:d=5  hl=2 l=   9 prim:      PRINTABLESTRING   :Cambridge
+  226:d=3  hl=2 l=  18 cons:    SET               
+  228:d=4  hl=2 l=  16 cons:     SEQUENCE          
+  230:d=5  hl=2 l=   3 prim:      OBJECT            :organizationName
+  235:d=5  hl=2 l=   9 prim:      PRINTABLESTRING   :Jagex Ltd
+  246:d=3  hl=2 l=  39 cons:    SET               
+  248:d=4  hl=2 l=  37 cons:     SEQUENCE          
+  250:d=5  hl=2 l=   3 prim:      OBJECT            :organizationalUnitName
+  255:d=5  hl=2 l=  30 prim:      PRINTABLESTRING   :SECURE APPLICATION DEVELOPMENT
+  287:d=3  hl=2 l=  18 cons:    SET               
+  289:d=4  hl=2 l=  16 cons:     SEQUENCE          
+  291:d=5  hl=2 l=   3 prim:      OBJECT            :commonName
+  296:d=5  hl=2 l=   9 prim:      PRINTABLESTRING   :Jagex Ltd
+  307:d=2  hl=4 l= 290 cons:   SEQUENCE          
+  311:d=3  hl=2 l=  13 cons:    SEQUENCE          
+  313:d=4  hl=2 l=   9 prim:     OBJECT            :rsaEncryption
+  324:d=4  hl=2 l=   0 prim:     NULL              
+  326:d=3  hl=4 l= 271 prim:    BIT STRING        
+      0000 - 00 30 82 01 0a 02 82 01-01 00 c5 e8 47 4c a4 05   .0..........GL..
+      0010 - 8b 2f fe b7 bc 65 43 45-18 9a 6a 50 ca 8a 21 0a   ./...eCE..jP..!.
+      0020 - 52 e6 e4 67 dc cb d8 6a-c1 2a 6c f2 b8 91 4b 82   R..g...j.*l...K.
+      0030 - c7 e0 5d c8 8b d5 e7 3d-86 02 f3 94 74 c0 c7 ec   ..]....=....t...
+      0040 - 7c 50 90 96 a8 0f 6c 72-b8 5f 68 ae 50 dc 3f 6c   |P....lr._h.P.?l
+      0050 - 04 fc 8d 51 de 20 02 07-3e bc 41 68 1a 88 ce af   ...Q. ..>.Ah....
+      0060 - 76 08 77 c6 98 b0 c3 58-43 10 87 e4 79 12 92 96   v.w....XC...y...
+      0070 - e9 c6 91 d0 70 77 f1 cf-de 35 87 1e e4 3a 3c 0f   ....pw...5...:<.
+      0080 - 03 88 30 8f ed 0b 42 d3-71 f8 e4 81 28 c1 d8 6d   ..0...B.q...(..m
+      0090 - 7d a5 3d fc 5b fa da d5-7c 05 55 94 77 7c bf ef   }.=.[...|.U.w|..
+      00a0 - bd 41 8f 88 d0 dd 70 27-10 0a 78 8f 8d 81 35 c0   .A....p'..x...5.
+      00b0 - b2 3f cb d8 8d 0d f3 dc-12 72 fd da b8 6a de 0e   .?.......r...j..
+      00c0 - 56 55 8a d9 fc 20 17 1c-07 50 f7 00 86 05 1c 91   VU... ...P......
+      00d0 - 82 d5 4c d4 08 d6 62 b6-a7 64 8f 5f 36 3f a1 fc   ..L...b..d._6?..
+      00e0 - a8 d1 0d af 85 b2 ef a4-e6 02 8b 88 a4 4d cf d3   .............M..
+      00f0 - c6 93 e9 a6 ac 11 4e 58-e5 8c 0a c8 f2 39 a9 67   ......NX.....9.g
+      0100 - 92 4c 7e 37 5f c6 87 82-9c 47 02 03 01 00 01      .L~7_....G.....
+  601:d=2  hl=3 l= 216 cons:   cont [ 3 ]        
+  604:d=3  hl=3 l= 213 cons:    SEQUENCE          
+  607:d=4  hl=2 l=  12 cons:     SEQUENCE          
+  609:d=5  hl=2 l=   3 prim:      OBJECT            :X509v3 Basic Constraints
+  614:d=5  hl=2 l=   1 prim:      BOOLEAN           :255
+  617:d=5  hl=2 l=   2 prim:      OCTET STRING      
+      0000 - 30 00                                             0.
+  621:d=4  hl=2 l=  62 cons:     SEQUENCE          
+  623:d=5  hl=2 l=   3 prim:      OBJECT            :X509v3 CRL Distribution Points
+  628:d=5  hl=2 l=  55 prim:      OCTET STRING      
+      0000 - 30 35 30 33 a0 31 a0 2f-86 2d 68 74 74 70 3a 2f   0503.1./.-http:/
+      0010 - 2f 63 72 6c 2e 74 68 61-77 74 65 2e 63 6f 6d 2f   /crl.thawte.com/
+      0020 - 54 68 61 77 74 65 43 6f-64 65 53 69 67 6e 69 6e   ThawteCodeSignin
+      0030 - 67 43 41 2e 63 72 6c                              gCA.crl
+  685:d=4  hl=2 l=  31 cons:     SEQUENCE          
+  687:d=5  hl=2 l=   3 prim:      OBJECT            :X509v3 Extended Key Usage
+  692:d=5  hl=2 l=  24 prim:      OCTET STRING      
+      0000 - 30 16 06 08 2b 06 01 05-05 07 03 03 06 0a 2b 06   0...+.........+.
+      0010 - 01 04 01 82 37 02 01 16-                          ....7...
+  718:d=4  hl=2 l=  29 cons:     SEQUENCE          
+  720:d=5  hl=2 l=   3 prim:      OBJECT            :2.5.29.4
+  725:d=5  hl=2 l=  22 prim:      OCTET STRING      
+      0000 - 30 14 30 0e 30 0c 06 0a-2b 06 01 04 01 82 37 02   0.0.0...+.....7.
+      0010 - 01 16 03 02 07 80                                 ......
+  749:d=4  hl=2 l=  50 cons:     SEQUENCE          
+  751:d=5  hl=2 l=   8 prim:      OBJECT            :Authority Information Access
+  761:d=5  hl=2 l=  38 prim:      OCTET STRING      
+      0000 - 30 24 30 22 06 08 2b 06-01 05 05 07 30 01 86 16   0$0"..+.....0...
+      0010 - 68 74 74 70 3a 2f 2f 6f-63 73 70 2e 74 68 61 77   http://ocsp.thaw
+      0020 - 74 65 2e 63 6f 6d                                 te.com
+  801:d=4  hl=2 l=  17 cons:     SEQUENCE          
+  803:d=5  hl=2 l=   9 prim:      OBJECT            :Netscape Cert Type
+  814:d=5  hl=2 l=   4 prim:      OCTET STRING      
+      0000 - 03 02 04 10                                       ....
+  820:d=1  hl=2 l=  13 cons:  SEQUENCE          
+  822:d=2  hl=2 l=   9 prim:   OBJECT            :sha1WithRSAEncryption
+  833:d=2  hl=2 l=   0 prim:   NULL              
+  835:d=1  hl=3 l= 129 prim:  BIT STRING        
+      0000 - 00 48 74 b4 1a d5 94 1a-76 01 8f 79 98 12 62 39   .Ht.....v..y..b9
+      0010 - 7e 25 cc 1b 25 72 7f 75-61 c6 c9 12 c3 87 ab 81   ~%..%r.ua.......
+      0020 - ff 36 3a d0 19 d4 40 7f-a2 ce 3f 5b 1b 26 76 77   .6:...@...?[.&vw
+      0030 - b1 d1 d9 f1 4e 1c 08 fd-ee 91 7d 5d ed a6 33 b9   ....N.....}]..3.
+      0040 - 34 a7 1b 02 71 40 8c 59-07 ca c4 93 c3 a9 51 e9   4...q@.Y......Q.
+      0050 - 7e a0 d5 00 e6 da 26 7f-e9 b5 18 1d 8f 7b dd 72   ~.....&......{.r
+      0060 - 26 07 1a d6 db 97 ef 47-78 8e 0c 52 77 8a d9 ae   &......Gx..Rw...
+      0070 - 83 85 ff 9f b4 60 6b 98-2f ed 4b 60 13 29 df b4   .....`k./.K`.)..
+      0080 - 4f                                                O
