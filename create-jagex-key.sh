@@ -11,6 +11,6 @@ readonly INTERMEDIATE_KEY_FILE="$CA_INTERMEDIATE_PRIVATE_DIR/jagex-ltd.key.pem"
 openssl genrsa \
   -aes256 \
   -out $INTERMEDIATE_KEY_FILE \
-  1024
+  2048
 
 chmod 400 $INTERMEDIATE_KEY_FILE
