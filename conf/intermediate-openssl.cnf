@@ -82,16 +82,17 @@ authorityInfoAccess     = OCSP;URI:http://ocsp.thawte.com
 subjectKeyIdentifier    = none
 authorityKeyIdentifier  = none
 extendedKeyUsage        = codeSigning, 1.3.6.1.4.1.311.2.1.22
-2.5.29.4                = ASN1:SEQUENCE:key_usage_restriction
-2.16.840.1.113730.1.1   = ASN1:FORMAT:HEX,BITSTRING:01
-
-[ key_usage_restriction ]
-wrappingSeq = SEQUENCE:wrapped_ext_oid
-key         = FORMAT:HEX,BITSTRING:01
-
-[ wrapped_ext_oid ]
-wrappingSeq = SEQUENCE:ext_oid
-
-[ ext_oid ]
-key = OID:1.3.6.1.4.1.311.2.1.22
+# keyUsageRestriction
+#
+# https://web.archive.org/web/20240309102523/https://datatracker.ietf.org/doc/html/draft-ietf-pkix-ipki-part1-00#section-4.2.3
+#
+# We encode the above key identifier as well as setting bit 0 for KeyUsage
+2.5.29.4                = DER:30:14:30:0E:30:0C:06:0A:2B:06:01:04:01:82:37:02:01:16:03:02:07:80
+# netscape-cert-type
+#
+# https://web.archive.org/web/20001205100300/http://home.netscape.com/eng/security/comm4-cert-exts.html
+#
+# We set bit 3 of the bitstring corresponding to:
+# Object Signing - this cert is certified for signing objects such as Java applets and plugins(New in PR3)
+2.16.840.1.113730.1.1   = DER:03:02:04:10
 
