@@ -68,12 +68,12 @@ keyUsage                = critical, cRLSign, keyCertSign
 [ v3_intermediate_ca ]
 # Extensions for typical intermediate CA (`man x509v3_config`).
 basicConstraints        = critical, CA:TRUE, pathlen:0
-keyUsage                = critical, cRLSign, keyCertSign
 crlDistributionPoints   = URI:http://crl.thawte.com/ThawtePremiumServerCA.crl
+extendedKeyUsage        = clientAuth, codeSigning
+keyUsage                = critical, cRLSign, keyCertSign
 subjectAltName          = dirName:directory_section
 subjectKeyIdentifier    = none
 authorityKeyIdentifier  = none
-extendedKeyUsage        = clientAuth, codeSigning
 
 [ directory_section ]
 CN = PrivateLabel2-144

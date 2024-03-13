@@ -9,7 +9,7 @@ openssl req \
   -config $ROOT_CONFIGURATION_FILE \
   -key "$CA_ROOT_PRIVATE_DIR/ca.key.pem" \
   -new \
-  -subj "/emailAddress=premium-server@thawte.com/CN=Thawte Premium Server CA/OU=Certification Services Division/O=Thawte Consulting cc/L=Cape Town/ST=Western Cape/C=ZA" \
+  -subj "/C=ZA/ST=Western Cape/L=Cape Town/O=Thawte Consulting cc/OU=Certification Services Division/CN=Thawte Premium Server CA/emailAddress=premium-server@thawte.com" \
   -x509 \
   -days 7300 \
   -out "$CA_ROOT_CERTS_DIR/ca.cert.pem"
