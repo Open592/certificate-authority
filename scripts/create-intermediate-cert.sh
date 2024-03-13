@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source shared.sh
+source ./scripts/shared.sh
 
 assert_directory_exists $CA_ROOT_NEWCERTS_DIR
 assert_directory_exists $CA_ROOT_CERTS_DIR

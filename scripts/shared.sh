@@ -20,7 +20,7 @@ if ! [ -x "$(command -v openssl)" ]; then
   fatal "This script requires openssl to be installed!"
 fi
 
-readonly CA_ROOT_DIR="./ca"
+readonly CA_ROOT_DIR="$(pwd)/ca"
 readonly CA_INTERMEDIATE_DIR="$CA_ROOT_DIR/intermediate"
 
 readonly CA_ROOT_CERTS_DIR="$CA_ROOT_DIR/certs"
@@ -41,6 +41,8 @@ function assert_directory_exists {
   fi
 }
 
+assert_directory_exists $CA_ROOT_DIR
+
 # We assume we are executing at the root of the directory structure
 # and that we have a `ca/` directory at the same level.
 #
@@ -48,4 +50,4 @@ function assert_directory_exists {
 # openssl should be storing / finding it's required files.
 #
 # This environment variable is referenced within the configuration file.
-export OPEN592_CA_ROOT_DIR="$(pwd)/ca"
+export OPEN592_CA_ROOT_DIR="$CA_ROOT_DIR"

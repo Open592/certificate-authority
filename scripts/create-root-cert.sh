@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source shared.sh
+source ./scripts/shared.sh
 
 # Directory where we will output the resulting certificate.
 assert_directory_exists $CA_ROOT_CERTS_DIR

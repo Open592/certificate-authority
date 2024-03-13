@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source shared.sh
+source ./scripts/shared.sh
 
 assert_directory_exists $CA_INTERMEDIATE_CSR_DIR
 assert_directory_exists $CA_INTERMEDIATE_CERTS_DIR

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source shared.sh
+source ./scripts/shared.sh
 
 # Delete the following files which are created during certificate creation.
 readonly FILE_GLOBS=(

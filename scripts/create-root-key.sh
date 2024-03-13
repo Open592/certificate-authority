@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-source shared.sh
+source ./scripts/shared.sh
 
+# Directory where we will output the resulting key.
 assert_directory_exists $CA_ROOT_PRIVATE_DIR
 
 # Filename of the resulting key.
