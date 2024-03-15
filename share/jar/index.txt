@@ -1,0 +1,1 @@
+I am wrapped in a signed jar file.

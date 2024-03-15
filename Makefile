@@ -1,4 +1,4 @@
-.PHONY: gen-root gen-intermediate gen-jagex reset
+.PHONY: gen-root gen-intermediate gen-jagex gen-keystore reset
 
 gen-root:
 	@scripts/create-root-key.sh
@@ -11,6 +11,9 @@ gen-intermediate:
 gen-jagex:
 	@scripts/create-jagex-key.sh
 	@scripts/create-jagex-cert.sh
+
+gen-keystore:
+	@scripts/create-keystore.sh
 
 reset:
 	@scripts/reset.sh

@@ -20,13 +20,16 @@ if ! [ -x "$(command -v openssl)" ]; then
   fatal "This script requires openssl to be installed!"
 fi
 
-readonly CA_ROOT_DIR="$(pwd)/ca"
-readonly CA_INTERMEDIATE_DIR="$CA_ROOT_DIR/intermediate"
+readonly ROOT_DIR="$(pwd)"
+
+readonly CA_ROOT_DIR="$ROOT_DIR/ca"
+readonly KEYSTORE_DIR="$ROOT_DIR/keystore"
 
 readonly CA_ROOT_CERTS_DIR="$CA_ROOT_DIR/certs"
 readonly CA_ROOT_NEWCERTS_DIR="$CA_ROOT_DIR/newcerts"
 readonly CA_ROOT_PRIVATE_DIR="$CA_ROOT_DIR/private"
 
+readonly CA_INTERMEDIATE_DIR="$CA_ROOT_DIR/intermediate"
 readonly CA_INTERMEDIATE_CERTS_DIR="$CA_INTERMEDIATE_DIR/certs"
 readonly CA_INTERMEDIATE_CSR_DIR="$CA_INTERMEDIATE_DIR/csr"
 readonly CA_INTERMEDIATE_NEWCERTS_DIR="$CA_INTERMEDIATE_DIR/newcerts"

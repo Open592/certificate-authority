@@ -2,7 +2,16 @@
 
 ## What is this?
 
-This is an experiment to emulate, as close as is possible, the certificates Jagex used during the 592 era. This will result in us having a fake certificate authority which we can use to sign the remote jar files validated by the applet viewer.
+The goal of this repository is to emulate, as close as is possible, the certificate Jagex used during the 592 era. We do this so that we can create, and sign, jar files for use in our project.
+
+Our goal is to emulate:
+
+- Certificate chain issuer and owner details
+- Validity periods
+- Certificate algorithms
+- Key sizes
+
+And leave us with a keystore which can be used, along with `jarsigner` to sign our files.
 
 ## Usage
 
@@ -15,6 +24,21 @@ make reset
 make gen-root
 make gen-intermediate
 make gen-jagex
+```
+
+### Creating keystore
+
+```
+make gen-keystore
+```
+
+### Signing jar file
+
+```
+jarsigner -keystore keystore/jagex-keystore.jks <PATH>.jar jagex
+
+# Confirm everything looks correct
+jarsigner -verify -certs -verbose <PATH>.jar
 ```
 
 ## Results

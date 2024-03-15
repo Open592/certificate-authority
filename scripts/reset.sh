@@ -14,6 +14,7 @@ readonly FILE_GLOBS=(
   "$CA_INTERMEDIATE_PRIVATE_DIR/*.key.pem"
   "$CA_ROOT_NEWCERTS_DIR/*.pem"
   "$CA_ROOT_PRIVATE_DIR/ca.key.pem"
+  "$KEYSTORE_DIR/*"
 )
 
 for glob in ${FILE_GLOBS[@]}; do

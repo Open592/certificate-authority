@@ -24,3 +24,6 @@ ca/index.*
 # The provided serial file results in the created intermediate
 # certificate having the same serial number
 ca/serial.*
+
+keystore/*
+!keystore/.gitkeep
