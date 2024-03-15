@@ -1,4 +1,4 @@
-# Certificate Authority
+# Simulate Jagex Certificate
 
 ## What is this?
 
