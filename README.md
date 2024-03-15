@@ -54,7 +54,9 @@ The resulting certificates (intermediate CA, and Jagex) are identical, to the ex
 - Resulting PEM files are identical in size.
 - ASN.1 is nearly identical.\*\*
 
-\*\* Ordering and content is identical, though OpenSSL uses `UTF8STRING` instead of `PRINTABLESTRING` in some places. You can observe the differences by diffing the `our-_.txt`files versus`original-\*.txt`files within`share/asn1`
+\*\* Ordering and content is identical, though OpenSSL uses `UTF8STRING` instead of `PRINTABLESTRING` in some places. You can observe the differences by diffing the `our-*.txt`files versus`original-*.txt`files within`share/asn1`
+
+![Screenshot of jarsigner verify](/share/images/jarsigner-verify.png)
 
 ## FAQ
 
