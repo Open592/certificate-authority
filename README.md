@@ -56,7 +56,52 @@ The resulting certificates (intermediate CA, and Jagex) are identical, to the ex
 
 \*\* Ordering and content is identical, though OpenSSL uses `UTF8STRING` instead of `PRINTABLESTRING` in some places. You can observe the differences by diffing the `our-*.txt`files versus`original-*.txt`files within`share/asn1`
 
-![Screenshot of jarsigner verify](/share/images/jarsigner-verify.png)
+### Jarsigner verify output
+
+```console
+[foo@bar simulate-jagex-certificate]$ jarsigner -verify -certs -verbose share/jar/example.jar
+
+s        165 Tue Apr 02 23:07:10 PDT 2024 META-INF/MANIFEST.MF
+
+      >>> Signer
+      X.509, CN=Jagex Ltd, OU=SECURE APPLICATION DEVELOPMENT, O=Jagex Ltd, L=Cambridge, ST=Cambridgeshire, C=GB
+      Signature algorithm: SHA1withRSA (disabled), 2048-bit key
+      [certificate expired on 9/12/10, 4:59 PM]
+      X.509, CN=Thawte Code Signing CA, O=Thawte Consulting (Pty) Ltd., C=ZA
+      Signature algorithm: SHA1withRSA (disabled), 1024-bit key (weak)
+      [certificate expired on 8/5/13, 4:59 PM]
+      [Invalid certificate chain: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target]
+
+         370 Tue Apr 02 23:07:10 PDT 2024 META-INF/ZIGBERT.SF
+        2456 Tue Apr 02 23:07:10 PDT 2024 META-INF/ZIGBERT.RSA
+           0 Tue Apr 02 23:06:38 PDT 2024 META-INF/
+sm        35 Fri Mar 15 02:17:18 PDT 2024 index.txt
+
+      >>> Signer
+      X.509, CN=Jagex Ltd, OU=SECURE APPLICATION DEVELOPMENT, O=Jagex Ltd, L=Cambridge, ST=Cambridgeshire, C=GB
+      Signature algorithm: SHA1withRSA (disabled), 2048-bit key
+      [certificate expired on 9/12/10, 4:59 PM]
+      X.509, CN=Thawte Code Signing CA, O=Thawte Consulting (Pty) Ltd., C=ZA
+      Signature algorithm: SHA1withRSA (disabled), 1024-bit key (weak)
+      [certificate expired on 8/5/13, 4:59 PM]
+      [Invalid certificate chain: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target]
+
+
+  s = signature was verified
+  m = entry is listed in manifest
+  k = at least one certificate was found in keystore
+
+- Signed by "CN=Jagex Ltd, OU=SECURE APPLICATION DEVELOPMENT, O=Jagex Ltd, L=Cambridge, ST=Cambridgeshire, C=GB"
+    Digest algorithm: SHA-384
+    Signature algorithm: SHA384withRSA, 2048-bit key
+
+jar verified.
+
+Warning:
+This jar contains entries whose signer certificate has expired.
+This jar contains entries whose certificate chain is invalid. Reason: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+This jar contains signatures that do not include a timestamp. Without a timestamp, users may not be able to validate this jar after any of the signer certificates expire (as early as 2010-09-12).
+```
 
 ## FAQ
 
