@@ -35,7 +35,7 @@ make gen-keystore
 ### Signing jar file
 
 ```
-jarsigner -keystore keystore/jagex-keystore.jks <PATH>.jar jagex
+jarsigner -keystore keystore/jagex-keystore.jks -sigfile ZIGBERT <PATH>.jar jagex
 
 # Confirm everything looks correct
 jarsigner -verify -certs -verbose <PATH>.jar
