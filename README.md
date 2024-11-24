@@ -109,7 +109,7 @@ This jar contains signatures that do not include a timestamp. Without a timestam
 
 No, the original applet viewer validated the public keys, so certificates signed by this fake certificate authority will not pass that check. This is true for both the Thawte, and Jagex certificates.
 
-Reference: [Deobfuscated applet viewer](https://github.com/Open592/jagexappletviewer/blob/master/src/main/java/com/open592/appletviewer/SignedFileValidator.java#L85-L115)
+Reference: [Deobfuscated applet viewer](https://github.com/Open592/jagex-code-exploration/blob/master/src/main/java/com/jagex/appletviewer/SignedFileValidator.java#L86-L112)
 
 ### Could you ever run 592 era remote jars in the original unmodified applet viewer?
 
